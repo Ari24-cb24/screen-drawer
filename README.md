@@ -19,10 +19,12 @@ The programs runs in the background.
 If you press Left CTRL (or Linkes STRG) and the Left Windows button, a pygame window will appear with a screenshot of your screen.  
   
 You can then draw anything on that screen:
+- Left Mouseclick to draw something
 - ALT + Mousewheel to change stroke size  
 - CTRL/STRG + Mousewheel to Zoom into the image  
 - CTRL/STRG + Spacebar to move the image around
 - CTRL/STRG + r to reset everything
+- SHIFT + Left Mouseclick to draw a straight line
   
 
 # How to use
