@@ -19,7 +19,6 @@ def calc_direction(x1, y1, x2, y2):
 
     return direction_x, direction_y, direction_x_, direction_y_
 
-# TODO: Zooming
 class ScreenDrawer:
     def __init__(self):
         s = screeninfo.get_monitors()[0]
@@ -55,7 +54,6 @@ class ScreenDrawer:
         self.screen.blit(self.draw_surface, (self.X, self.Y))
 
     def reset_screen(self):
-        # TODO: reset zoom
         self.screen.blit(self.screenshot, (self.X, self.Y))
         self.draw_surface.fill((0, 0, 0, 0))
         self.screen.blit(self.draw_surface, (self.X, self.Y))
