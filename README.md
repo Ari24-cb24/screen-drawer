@@ -1,6 +1,18 @@
 # Screen Drawer
 Apples Drawing and Zoom feature in a nutshell
 
+# Requirements
+
+U need 
+
+- Pygame 1.9.6+  
+  
+You may wanna download it directly over pip (pip install pygame)    
+or with the binary itself if you have problems installing:  
+- Download the wheel from here: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
+- Use pip install <file>.whl
+- If you don't have wheel installed, install it via pip install wheel
+
 # Features
 
 The programs runs in the background.  
