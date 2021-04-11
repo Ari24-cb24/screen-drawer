@@ -10,7 +10,7 @@ U need
 You may wanna download it directly over pip (pip install pygame)    
 or with the binary itself if you have problems installing:  
 - Download the wheel from here: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
-- Use pip install <file>.whl
+- Use pip install filename.whl
 - If you don't have wheel installed, install it via pip install wheel
 
 # Features
