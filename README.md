@@ -6,7 +6,7 @@ Apples Drawing and Zoom feature in a nutshell
 If you haven't installed Python 3.7+ yet, install it here: https://www.python.org/downloads/release/python-3710/  
 After that, follow these steps
 
-1. Download the zip-archiv containing ScreenDrawer: URL   
+1. Download the zip-archiv containing ScreenDrawer: https://github.com/Ari24-cb24/screen-drawer/archive/refs/tags/1.1.zip   
 2. Extract the zip-archiv
 3. Install pygame 1.9.6+ if you haven't already installed it
 4. **Run Main.pyw**  
