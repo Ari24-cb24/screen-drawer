@@ -15,7 +15,7 @@ After that, follow these steps
 <br />
 If you have problems installing pygame, install the binary from https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame instead.  
 
-Run  
+**Run**  
 
 ```bash
 pip install wheel
