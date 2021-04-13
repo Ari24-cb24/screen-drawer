@@ -13,7 +13,7 @@ After that, follow these steps
 5. (Optional Step) Make a linkage from the Startup folder to Main.pyw  
 
 <br />
-If you have problems installing pygame, install the binary from (here)[https://www.lfd.uci.edu/~gohlke/pythonlibs#pygame] instead.  
+If you have problems installing pygame, install the binary from https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame instead.  
 
 Run  
 
