@@ -37,6 +37,7 @@ You can then draw anything on that screen:
 - **ALT + Mousewheel** to change stroke size  
 - **CTRL/STRG + Mousewheel** to Zoom into the image  
 - **CTRL/STRG + Spacebar** to move the image around
+- **CTRL/STRG + c** to copy the current image. Also applies the zoom, move and drawing
 
 ## Changelog
 
@@ -46,6 +47,7 @@ You can then draw anything on that screen:
 > * *Pep8'ed the code but in a good way*
 > * *Improved README.md*
 > * *Added logging for more debugging*
+> * *Added Keybind CTRL + c to copy the current image. Also applies the zoom, move and the drawing
 
 ## License stuff
 
