@@ -47,7 +47,7 @@ You can then draw anything on that screen:
 > * *Pep8'ed the code but in a good way*
 > * *Improved README.md*
 > * *Added logging for more debugging*
-> * *Added Keybind CTRL + c to copy the current image. Also applies the zoom, move and the drawing
+> * *Added Keybind CTRL + c to copy the current image. Also applies the zoom, move and the drawing*
 
 ## License stuff
 
