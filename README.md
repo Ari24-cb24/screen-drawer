@@ -1,37 +1,52 @@
 # Screen Drawer
 Apples Drawing and Zoom feature in a nutshell
 
-# Requirements
+## Installation
 
-U need 
+If you haven't installed Python 3.7+ yet, install it here: https://www.python.org/downloads/release/python-3710/  
+After that, follow these steps
 
-- Pygame 1.9.6+  
-  
-You may wanna download it directly over pip (pip install pygame)    
-or with the binary itself if you have problems installing:  
-- Download the wheel from here: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
-- Use pip install filename.whl
-- If you don't have wheel installed, install it via pip install wheel
+1. Download the zip-archiv containing ScreenDrawer: URL   
+2. Extract the zip-archiv
+3. Install pygame 1.9.6+ if you haven't already installed it
+4. **Run Main.pyw**  
+5. (Optional Step) Make a linkage from the Startup folder to Main.pyw  
 
-# Features
+<br />
+If you have problems installing pygame, install the binary from [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame) instead.  
+
+Run  
+
+```bash
+pip install wheel
+pip install pygame_binary_filename.whl
+```
+
+To install pygame via the binary.
+
+## Features
 
 The programs runs in the background.  
-If you press Left CTRL (or Linkes STRG) and the Left Windows button, a pygame window will appear with a screenshot of your screen.  
+If you press Left CTRL/STRG and the Left Windows button, a pygame window will appear with a screenshot of your screen.  
   
 You can then draw anything on that screen:
-- Left Mouseclick to draw something
-- ALT + Mousewheel to change stroke size  
-- CTRL/STRG + Mousewheel to Zoom into the image  
-- CTRL/STRG + Spacebar to move the image around
-- CTRL/STRG + r to reset everything
-- SHIFT + Left Mouseclick to draw a straight line
-  
+- **Left Mouseclick (LMB)** to draw something
+- **SHIFT + Left Mouseclick (LMB)** to draw a straight line
+- **ALT + r** to reset the drawing
+- **CTRL/STRG + r** to reset everything
+- **ALT + Mousewheel** to change stroke size  
+- **CTRL/STRG + Mousewheel** to Zoom into the image  
+- **CTRL/STRG + Spacebar** to move the image around
 
-# How to use
+## Changelog
 
-Basically just run the file itself  
-You may wanna add the file to the Startup folder
+> v**1.1**
+> * *Added ALT + r Keybind for resetting the drawing*
+> * *Improved code readability*
+> * *Pep8'ed the code but in a good way*
+> * *Improved README.md*
+> * *Added logging for more debugging*
 
-# License stuff
+## License stuff
 
-Free to use, link myself if you include it in your own project
+Free to use
