@@ -98,6 +98,36 @@ class ScreenDrawer:
         clipboard.SetClipboardData(win32con.CF_DIB, data)
         clipboard.CloseClipboard()
 
+    def zoom_in(self):
+        self.ZOOMED_WIDTH *= 1.5
+        self.ZOOMED_HEIGHT *= 1.5
+        self.ZOOMED_WIDTH = int(self.ZOOMED_WIDTH)
+        self.ZOOMED_HEIGHT = int(self.ZOOMED_HEIGHT)
+
+        self.saved_zoomed_frames.append((self.screenshot, self.draw_surface))
+        self.current_zoom_frame_index = len(self.saved_zoomed_frames) - 1
+
+        self.screenshot = pygame.transform.smoothscale(self.screenshot, (self.ZOOMED_WIDTH, self.ZOOMED_HEIGHT))
+        self.draw_surface = pygame.transform.smoothscale(self.draw_surface, (self.ZOOMED_WIDTH, self.ZOOMED_HEIGHT))
+        self.screen.blit(self.screenshot, (self.screenshot_x, self.screenshot_y))
+        self.screen.blit(self.draw_surface, (self.screenshot_x, self.screenshot_y))
+
+    def zoom_out(self):
+        if self.current_zoom_frame_index != -1:
+            self.ZOOMED_WIDTH /= 1.5
+            self.ZOOMED_HEIGHT /= 1.5
+            self.ZOOMED_WIDTH = int(self.ZOOMED_WIDTH)
+            self.ZOOMED_HEIGHT = int(self.ZOOMED_HEIGHT)
+
+            last_zoom_frame = self.saved_zoomed_frames.pop(self.current_zoom_frame_index)
+            self.current_zoom_frame_index -= 1
+            self.screenshot = last_zoom_frame[0]
+            self.draw_surface = last_zoom_frame[1]
+
+            self.screen.fill((0, 0, 0))
+            self.screen.blit(self.screenshot, (self.screenshot_x, self.screenshot_y))
+            self.screen.blit(self.draw_surface, (self.screenshot_x, self.screenshot_y))
+
     def run(self):
         self.startup_screen()
 
@@ -161,36 +191,10 @@ class ScreenDrawer:
                                 self.screen.blit(self.screenshot, (self.screenshot_x, self.screenshot_y))
 
                 if direction == 1:
-                    self.ZOOMED_WIDTH *= 1.5
-                    self.ZOOMED_HEIGHT *= 1.5
-                    self.ZOOMED_WIDTH = int(self.ZOOMED_WIDTH)
-                    self.ZOOMED_HEIGHT = int(self.ZOOMED_HEIGHT)
-
-                    self.saved_zoomed_frames.append((self.screenshot, self.draw_surface))
-                    self.current_zoom_frame_index = len(self.saved_zoomed_frames) - 1
-
-                    self.screenshot = pygame.transform.smoothscale(self.screenshot,
-                                                                   (self.ZOOMED_WIDTH, self.ZOOMED_HEIGHT))
-                    self.screen.blit(self.screenshot, (self.screenshot_x, self.screenshot_y))
-                    self.draw_surface = pygame.transform.smoothscale(self.draw_surface,
-                                                                     (self.ZOOMED_WIDTH, self.ZOOMED_HEIGHT))
-                    self.screen.blit(self.draw_surface, (self.screenshot_x, self.screenshot_y))
+                    self.zoom_in()
 
                 elif direction == -1:
-                    if self.current_zoom_frame_index != -1:
-                        self.ZOOMED_WIDTH /= 1.5
-                        self.ZOOMED_HEIGHT /= 1.5
-                        self.ZOOMED_WIDTH = int(self.ZOOMED_WIDTH)
-                        self.ZOOMED_HEIGHT = int(self.ZOOMED_HEIGHT)
-
-                        last_zoom_frame = self.saved_zoomed_frames.pop(self.current_zoom_frame_index)
-                        self.current_zoom_frame_index -= 1
-                        self.screenshot = last_zoom_frame[0]
-                        self.draw_surface = last_zoom_frame[1]
-
-                        self.screen.fill((0, 0, 0))
-                        self.screen.blit(self.screenshot, (self.screenshot_x, self.screenshot_y))
-                        self.screen.blit(self.draw_surface, (self.screenshot_x, self.screenshot_y))
+                    self.zoom_out()
 
             if pygame.key.get_mods() & pygame.KMOD_SHIFT:
                 if pygame.mouse.get_pressed()[0]:

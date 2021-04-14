@@ -1,7 +1,8 @@
 import logging
+import yaml
 from KeyListener import Listener
 
-DEBUG = True
+DEBUG = False
 
 def setup_logger():
     log_level = logging.DEBUG if DEBUG else logging.ERROR

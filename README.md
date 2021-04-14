@@ -6,7 +6,7 @@ Apples Drawing and Zoom feature in a nutshell
 If you haven't installed Python 3.7+ yet, install it here: https://www.python.org/downloads/release/python-3710/  
 After that, follow these steps
 
-1. Download the zip-archiv containing ScreenDrawer: https://github.com/Ari24-cb24/screen-drawer/archive/refs/tags/1.1.zip   
+1. Download the zip-archiv containing ScreenDrawer: https://github.com/Ari24-cb24/screen-drawer/archive/refs/tags/1.1a.zip   
 2. Extract the zip-archiv
 3. Install pygame 1.9.6+ if you haven't already installed it
 4. **Run Main.pyw**  
@@ -39,7 +39,19 @@ You can then draw anything on that screen:
 - **CTRL/STRG + Spacebar** to move the image around
 - **CTRL/STRG + c** to copy the current image. Also applies the zoom, move and drawing
 
+## Currently known bugs
+
+> - If you draw something, while you're zoomed in, and you zoom out, the drawing will vanish
+
 ## Changelog
+
+> v**1.1a**
+> * *Added functionality to add multiple keybinds*
+> * *Fixed Readme bugs*
+> * *Debug mode is now on default false*
+> * *Improved code readability*
+
+<br />
 
 > v**1.1**
 > * *Added ALT + r Keybind for resetting the drawing*
