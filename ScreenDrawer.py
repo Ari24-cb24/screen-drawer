@@ -5,8 +5,6 @@ import win32clipboard as clipboard
 from io import BytesIO
 
 import pygame
-import screeninfo
-import pyautogui
 
 import utils
 
@@ -14,8 +12,8 @@ pygame.init()
 
 class ScreenDrawer:
     def __init__(self):
-        screen_info = screeninfo.get_monitors()[0]
-        self.WIDTH, self.HEIGHT = screen_info.width, screen_info.height - 10
+        screen = utils.get_current_monitor()
+        self.WIDTH, self.HEIGHT = screen.width, screen.height - 10
         self.ZOOMED_WIDTH, self.ZOOMED_HEIGHT = self.WIDTH, self.HEIGHT
         self.screenshot_x = self.screenshot_y = 0
 
@@ -25,16 +23,18 @@ class ScreenDrawer:
         self.saved_zoomed_frames = []
         self.current_zoom_frame_index = -1
 
-        self.screenshot = pyautogui.screenshot()
+        self.screenshot = utils.screenshot(bbox=screen.bbox, all_screens=True)
         self.screenshot = utils.img_to_surf(self.screenshot)
 
-        os.environ['SDL_VIDEO_WINDOW_POS'] = '{},{}'.format(0, 10)
+        os.environ['SDL_VIDEO_WINDOW_POS'] = '{},{}'.format(screen.x, screen.y + 10)
         self.screen = pygame.display.set_mode((self.WIDTH, self.HEIGHT))
         self.draw_surface = pygame.Surface((self.WIDTH, self.HEIGHT))
         self.draw_surface = self.draw_surface.convert_alpha(self.draw_surface)
 
         pygame.display.set_caption("Pygame Preset")
         pygame.display.set_icon(pygame.image.load("./assets/icons/icon.png"))
+
+        utils.move_window_to_front()
 
     def startup_screen(self):
         logging.info("Setting up screen")
