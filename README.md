@@ -6,7 +6,7 @@ Apples Drawing and Zoom feature in a nutshell
 If you haven't installed Python 3.7+ yet, install it here: https://www.python.org/downloads/release/python-3710/  
 After that, follow these steps
 
-1. Download the zip-archiv containing ScreenDrawer: https://github.com/Ari24-cb24/screen-drawer/archive/refs/tags/1.2.zip   
+1. Download the zip-archiv containing ScreenDrawer: https://github.com/Ari24-cb24/screen-drawer/archive/refs/tags/1.2a.zip   
 2. Extract the zip-archiv
 3. Install the following packages if you haven't already installed it
    - pygame 1.9.6+ (pip install pygame)
@@ -50,6 +50,10 @@ You can then draw anything on that screen:
 - Screenshots are incorrectly cropped on high-DPI displays. Windows returns display geometry data scaled for the DPI, while the actual screenshots are unscaled. Workaround: Right-click on python.exe, Properties, Compatibility tab, check 'Disable display scaling on high DPI settings'. Repeat for pythonw.exe.
 
 ## Changelog
+
+> v**1.2a**
+> Fixed bug where window is permanently topmost
+> Pygame Window title set
 
 > v**1.2**
 > * *Added multiple screen support. You can now screenshot your 2nd monitor as well!*

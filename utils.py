@@ -1,5 +1,4 @@
 from PIL import Image
-from ctypes import windll
 import pyautogui
 import sys
 import tempfile
@@ -75,7 +74,3 @@ def get_current_monitor():
                 return Monitor(monitor)
 
     return Monitor(monitors[0])
-
-def move_window_to_front():
-    hwnd = pygame.display.get_wm_info()["window"]
-    windll.user32.SetWindowPos(hwnd, -1, 0, 0, 0, 0, 3)

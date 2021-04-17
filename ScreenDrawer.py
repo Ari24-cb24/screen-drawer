@@ -10,6 +10,7 @@ import utils
 
 pygame.init()
 
+
 class ScreenDrawer:
     def __init__(self):
         screen = utils.get_current_monitor()
@@ -30,17 +31,20 @@ class ScreenDrawer:
         self.screen = pygame.display.set_mode((self.WIDTH, self.HEIGHT))
         self.draw_surface = pygame.Surface((self.WIDTH, self.HEIGHT))
         self.draw_surface = self.draw_surface.convert_alpha(self.draw_surface)
+        self.information_surface = pygame.Surface((self.WIDTH // 16, self.HEIGHT // 16))
+        self.information_surface = self.information_surface.convert_alpha(self.information_surface)
 
-        pygame.display.set_caption("Pygame Preset")
+        pygame.display.set_caption("ScreenDrawer")
         pygame.display.set_icon(pygame.image.load("./assets/icons/icon.png"))
-
-        utils.move_window_to_front()
 
     def startup_screen(self):
         logging.info("Setting up screen")
-        self.screen.blit(pygame.transform.scale(self.screenshot, (self.WIDTH, self.HEIGHT)), (self.screenshot_x, self.screenshot_y))
+        self.information_surface.fill((0, 0, 0, 0))
         self.draw_surface.fill((0, 0, 0, 0))
+
+        self.screen.blit(pygame.transform.scale(self.screenshot, (self.WIDTH, self.HEIGHT)), (self.screenshot_x, self.screenshot_y))
         self.screen.blit(self.draw_surface, (self.screenshot_x, self.screenshot_y))
+        self.screen.blit(self.information_surface, (self.WIDTH // 2 - self.WIDTH // 32, self.HEIGHT // 3 * 2))
 
     def reset_drawing(self):
         logging.info("Resetting drawing")
@@ -139,6 +143,8 @@ class ScreenDrawer:
 
         while run:
             self.screen.blit(self.draw_surface, (self.screenshot_x, self.screenshot_y))
+            self.screen.blit(self.information_surface, (self.WIDTH // 2 - self.WIDTH // 32, self.HEIGHT // 3 * 2.5))
+            self.information_surface.fill((28, 24, 24, 30))
             keys = pygame.key.get_pressed()
             direction = 0
 
@@ -233,3 +239,8 @@ class ScreenDrawer:
             pygame.display.update()
 
         pygame.quit()
+
+
+if __name__ == '__main__':
+    sc = ScreenDrawer()
+    sc.run()
